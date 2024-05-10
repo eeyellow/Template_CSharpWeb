@@ -65,7 +65,7 @@
 
 1. 使用`git subtree`的方式將此包程式碼加入目標專案
    ```pwsh
-   git subtree pull --prefix Infra https://github.com/LC-Organic-by-Komexeu/LC-Infrastructure.git master
+   git subtree add --prefix Infra https://github.com/LC-Organic-by-Komexeu/LC-Infrastructure.git master
    ```
 2. 執行安裝
    ```pwsh
