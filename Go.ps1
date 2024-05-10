@@ -1,7 +1,7 @@
 $targetPath = "..\"
 
-Move-Item -Path appsettings.json -Destination $targetPath
-Move-Item -Path appsettings.Development.json -Destination $targetPath
+Move-Item -Path appsettings.json -Destination $targetPath -Force
+Move-Item -Path appsettings.Development.json -Destination $targetPath -Force
 
 $csprojFiles = (Get-ChildItem -Path $targetPath -Recurse -Filter *.csproj -File)[0]
 
