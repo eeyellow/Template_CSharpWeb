@@ -1,0 +1,92 @@
+$targetPath = "..\"
+
+Move-Item -Path appsettings.json -Destination $targetPath -Force
+Move-Item -Path appsettings.Development.json -Destination $targetPath -Force
+
+$csprojFiles = (Get-ChildItem -Path $targetPath -Recurse -Filter *.csproj -File)[0]
+
+$csproj = [xml](Get-Content $csprojFiles.FullName)
+
+$GenerateDocumentationFile = $csproj.Project.PropertyGroup.GenerateDocumentationFile
+if ($null -eq $GenerateDocumentationFile) {
+    $GenerateDocumentationFile = $csproj.CreateElement("GenerateDocumentationFile")
+    $GenerateDocumentationFile.InnerText = "true"
+    $csproj.Project.PropertyGroup.AppendChild($GenerateDocumentationFile)
+}
+
+$DocumentationFile = $csproj.Project.PropertyGroup.DocumentationFile
+if ($null -eq $DocumentationFile) {
+    $DocumentationFile = $csproj.CreateElement("DocumentationFile")
+    $DocumentationFile.InnerText = ".\" + $csprojFiles.Name.Replace(".csproj", ".xml")
+    $csproj.Project.PropertyGroup.AppendChild($DocumentationFile)
+}
+
+$ItemGroup = $csproj.CreateElement("ItemGroup")
+$ItemGroup.InnerXml = @'
+  <PackageReference Include="Autofac" Version="7.1.0" />
+  <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+  <PackageReference Include="Autofac.Extras.CommonServiceLocator" Version="6.1.0" />
+  <PackageReference Include="CsvHelper" Version="30.0.1" />
+  <PackageReference Include="ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly" Version="7.0.6" />
+  <PackageReference Include="GraphQL" Version="7.7.2" />
+  <PackageReference Include="GraphQL.DataLoader" Version="7.7.2" />
+  <PackageReference Include="GraphQL.MemoryCache" Version="7.7.2" />
+  <PackageReference Include="GraphQL.MicrosoftDI" Version="7.7.2" />
+  <PackageReference Include="GraphQL.NewtonsoftJson" Version="7.7.2" />
+  <PackageReference Include="GraphQL.Server.All" Version="7.6.0" />
+  <PackageReference Include="GraphQL.Server.Ui.Altair" Version="7.6.0" />
+  <PackageReference Include="GraphQL.Server.Ui.GraphiQL" Version="7.6.0" />
+  <PackageReference Include="GraphQL.Server.Ui.Playground" Version="7.6.0" />
+  <PackageReference Include="GraphQL.SystemTextJson" Version="7.7.2" />
+  <PackageReference Include="Hangfire.AspNetCore" Version="1.8.7" />
+  <PackageReference Include="Hangfire.Console" Version="1.4.2" />
+  <PackageReference Include="Hangfire.Core" Version="1.8.7" />
+  <PackageReference Include="Hangfire.SqlServer" Version="1.8.7" />
+  <PackageReference Include="Mapster" Version="7.4.0" />
+  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
+  <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.0" />
+  <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0" />
+  <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.4" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.0" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+    <PrivateAssets>all</PrivateAssets>
+    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+  </PackageReference>
+  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="8.0.0" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+    <PrivateAssets>all</PrivateAssets>
+    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+  </PackageReference>
+  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+  <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
+  <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.2.0" />
+  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+  <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
+  <PackageReference Include="NetTopologySuite" Version="2.5.0" />
+  <PackageReference Include="NetTopologySuite.IO.GeoJSON" Version="4.0.0" />
+  <PackageReference Include="NetTopologySuite.IO.ShapeFile" Version="2.1.0" />
+  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  <PackageReference Include="NuGet.Common" Version="6.8.0" />
+  <PackageReference Include="NuGet.Protocol" Version="6.8.0" />
+  <PackageReference Include="Serilog" Version="3.1.1" />
+  <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+  <PackageReference Include="Serilog.Expressions" Version="4.0.0" />
+  <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+  <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+  <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="6.5.0" />
+  <PackageReference Include="Serilog.UI" Version="2.5.1" />
+  <PackageReference Include="Serilog.UI.MsSqlServerProvider" Version="2.2.1" />
+  <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+  <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.5.0" />
+  <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.2.0" />
+  <PackageReference Include="System.Net.Http" Version="4.3.4" />
+'@
+$csproj.Project.AppendChild($ItemGroup)
+
+$csproj.Save($csprojFiles.FullName)
