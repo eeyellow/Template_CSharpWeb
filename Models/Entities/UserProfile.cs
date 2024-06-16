@@ -6,11 +6,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LC.Models.Entities
 {
+    /// <summary> 使用者資料 </summary>
     public class UserProfile : ARecord
     {
         /// <summary>
         /// 名稱
-        /// </summary>        
+        /// </summary>
         [StringLength(20)]
         [Comment("名稱")]
         [Required]
@@ -20,7 +21,7 @@ namespace LC.Models.Entities
 
         /// <summary>
         /// 帳號
-        /// </summary>        
+        /// </summary>
         [StringLength(20)]
         [Comment("帳號")]
         [Required]
@@ -30,7 +31,7 @@ namespace LC.Models.Entities
 
         /// <summary>
         /// 密碼
-        /// </summary>        
+        /// </summary>
         [Column(TypeName = "nvarchar(MAX)")]
         [Comment("密碼")]
         [Required]

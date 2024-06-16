@@ -8,13 +8,20 @@ using System.Reflection;
 
 namespace LC.Models.Contexts
 {
+    /// <summary> 主資料庫 </summary>
     public partial class DatabaseContext : IdentityDbContext<IdentityUser>
     {
         private static readonly bool[] MigratedRecord = { false };
+        /// <summary> 使用者資料 </summary>
         public virtual DbSet<UserProfile> UserProfile { get; set; }
+        /// <summary> 縣市 </summary>
         public virtual DbSet<County> County { get; set; }
+        /// <summary> 鄉鎮市區 </summary>
         public virtual DbSet<Town> Town { get; set; }
+        /// <summary> 村里 </summary>
         public virtual DbSet<Village> Village { get; set; }
+
+        /// <summary> 建構式 </summary>
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
             // 自動更新資料庫結構
@@ -31,6 +38,7 @@ namespace LC.Models.Contexts
             }
         }
 
+        /// <summary> OnModelCreating </summary>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -44,9 +52,9 @@ namespace LC.Models.Contexts
             SqlDefaultValueAttributeConvention.Apply(modelBuilder);
 
             // Infrastructure/Seeds
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());            
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
-        
+
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-    } 
+    }
 }

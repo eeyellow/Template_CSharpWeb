@@ -1,9 +1,4 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
-
-
-// Licensed to the .NET Foundation under one or more agreements.
-
-using LC.Infrastructure.Hangfire.Interface;
+﻿using LC.Infrastructure.Hangfire.Interface;
 
 namespace LC.Infrastructure.Hangfire
 {

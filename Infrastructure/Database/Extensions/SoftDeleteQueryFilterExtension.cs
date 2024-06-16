@@ -6,6 +6,7 @@ using System.Reflection;
 
 namespace LC.Infrastructure.Database.Extensions
 {
+    /// <summary> 軟刪除查詢過濾器 </summary>
     public static class SoftDeleteQueryFilter
     {
         /// <summary>

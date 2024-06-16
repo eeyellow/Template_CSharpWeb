@@ -727,6 +727,18 @@
             座標點位
             </summary>
         </member>
+        <member name="T:Template_CSharpWeb.Migrations.Init">
+            <inheritdoc />
+        </member>
+        <member name="M:Template_CSharpWeb.Migrations.Init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Template_CSharpWeb.Migrations.Init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Template_CSharpWeb.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
         <member name="T:MyProj.Program">
             <summary>Program</summary>
         </member>

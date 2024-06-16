@@ -4,8 +4,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LC.Infrastructure.Database.Extensions
 {
+    /// <summary> SqlDefaultValueAttributeConvention </summary>
     public static class SqlDefaultValueAttributeConvention
     {
+        /// <summary> Apply </summary>
         public static void Apply(ModelBuilder builder)
         {
             ConventionBehaviors
@@ -13,8 +15,10 @@ namespace LC.Infrastructure.Database.Extensions
         }
     }
 
+    /// <summary> DecimalPrecisionAttributeConvention </summary>
     public static class DecimalPrecisionAttributeConvention
     {
+        /// <summary> Apply </summary>
         public static void Apply(ModelBuilder builder)
         {
             ConventionBehaviors
@@ -23,8 +27,10 @@ namespace LC.Infrastructure.Database.Extensions
         }
     }
 
+    /// <summary> CustomDataTypeAttributeConvention </summary>
     public class CustomDataTypeAttributeConvention
     {
+        /// <summary> Apply </summary>
         public static void Apply(ModelBuilder builder)
         {
             ConventionBehaviors
@@ -33,8 +39,10 @@ namespace LC.Infrastructure.Database.Extensions
         }
     }
 
+    /// <summary> ConventionBehaviors </summary>
     public static class ConventionBehaviors
     {
+        /// <summary> SetTypeForPropertiesWithAttribute </summary>
         public static void SetTypeForPropertiesWithAttribute<TAttribute>(ModelBuilder builder, Func<TAttribute, string> lambda) where TAttribute : class
         {
             SetPropertyValue<TAttribute>(builder).ForEach((x) =>
@@ -43,6 +51,7 @@ namespace LC.Infrastructure.Database.Extensions
             });
         }
 
+        /// <summary> SetSqlValueForPropertiesWithAttribute </summary>
         public static void SetSqlValueForPropertiesWithAttribute<TAttribute>(ModelBuilder builder, Func<TAttribute, string> lambda) where TAttribute : class
         {
             SetPropertyValue<TAttribute>(builder).ForEach((x) =>
@@ -120,6 +129,7 @@ namespace LC.Infrastructure.Database.Extensions
             Scale = scale;
         }
 
+        /// <summary> DecimalPrecisionAttribute </summary>
         public DecimalPrecisionAttribute(int[] values)
         {
             Precision = values[0];
