@@ -4,6 +4,12 @@
         <name>Template_CSharpWeb</name>
     </assembly>
     <members>
+        <member name="T:LC.Infrastructure.AppSettings.AppSettingsOptions">
+            <summary> AppSettingsOptions </summary>
+        </member>
+        <member name="F:LC.Infrastructure.AppSettings.AppSettingsOptions.AppSettings">
+            <summary> AppSettings </summary>
+        </member>
         <member name="T:LC.Infrastructure.AppSettings.FeatureInfrastructure">
             <summary>
             功能基礎設施
@@ -81,6 +87,33 @@
         <member name="M:LC.Infrastructure.Cors.FeatureInfrastructure.Configure(Microsoft.AspNetCore.Builder.WebApplication)">
             <inheritdoc />
         </member>
+        <member name="T:LC.Infrastructure.Database.Extensions.SqlDefaultValueAttributeConvention">
+            <summary> SqlDefaultValueAttributeConvention </summary>
+        </member>
+        <member name="M:LC.Infrastructure.Database.Extensions.SqlDefaultValueAttributeConvention.Apply(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary> Apply </summary>
+        </member>
+        <member name="T:LC.Infrastructure.Database.Extensions.DecimalPrecisionAttributeConvention">
+            <summary> DecimalPrecisionAttributeConvention </summary>
+        </member>
+        <member name="M:LC.Infrastructure.Database.Extensions.DecimalPrecisionAttributeConvention.Apply(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary> Apply </summary>
+        </member>
+        <member name="T:LC.Infrastructure.Database.Extensions.CustomDataTypeAttributeConvention">
+            <summary> CustomDataTypeAttributeConvention </summary>
+        </member>
+        <member name="M:LC.Infrastructure.Database.Extensions.CustomDataTypeAttributeConvention.Apply(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary> Apply </summary>
+        </member>
+        <member name="T:LC.Infrastructure.Database.Extensions.ConventionBehaviors">
+            <summary> ConventionBehaviors </summary>
+        </member>
+        <member name="M:LC.Infrastructure.Database.Extensions.ConventionBehaviors.SetTypeForPropertiesWithAttribute``1(Microsoft.EntityFrameworkCore.ModelBuilder,System.Func{``0,System.String})">
+            <summary> SetTypeForPropertiesWithAttribute </summary>
+        </member>
+        <member name="M:LC.Infrastructure.Database.Extensions.ConventionBehaviors.SetSqlValueForPropertiesWithAttribute``1(Microsoft.EntityFrameworkCore.ModelBuilder,System.Func{``0,System.String})">
+            <summary> SetSqlValueForPropertiesWithAttribute </summary>
+        </member>
         <member name="T:LC.Infrastructure.Database.Extensions.SqlDefaultValueAttribute">
             <summary>
             Set a default value defined on the sql server
@@ -118,6 +151,12 @@
             </summary>
             <param name="precision">Specify the precision - the number of digits both left and right of the decimal</param>
             <param name="scale">Specify the scale - the number of digits to the right of the decimal</param>
+        </member>
+        <member name="M:LC.Infrastructure.Database.Extensions.DecimalPrecisionAttribute.#ctor(System.Int32[])">
+            <summary> DecimalPrecisionAttribute </summary>
+        </member>
+        <member name="T:LC.Infrastructure.Database.Extensions.SoftDeleteQueryFilter">
+            <summary> 軟刪除查詢過濾器 </summary>
         </member>
         <member name="M:LC.Infrastructure.Database.Extensions.SoftDeleteQueryFilter.Apply(Microsoft.EntityFrameworkCore.ModelBuilder,System.Type)">
             <summary>
@@ -577,6 +616,45 @@
         <member name="M:LC.Infrastructure._Base.AbstractFeatureInfrastructure.Configure(Microsoft.AspNetCore.Builder.WebApplication)">
             <inheritdoc />
         </member>
+        <member name="T:LC.Models.Contexts.DatabaseContext">
+            <summary> 主資料庫 </summary>
+        </member>
+        <member name="P:LC.Models.Contexts.DatabaseContext.UserProfile">
+            <summary> 使用者資料 </summary>
+        </member>
+        <member name="P:LC.Models.Contexts.DatabaseContext.County">
+            <summary> 縣市 </summary>
+        </member>
+        <member name="P:LC.Models.Contexts.DatabaseContext.Town">
+            <summary> 鄉鎮市區 </summary>
+        </member>
+        <member name="P:LC.Models.Contexts.DatabaseContext.Village">
+            <summary> 村里 </summary>
+        </member>
+        <member name="M:LC.Models.Contexts.DatabaseContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{LC.Models.Contexts.DatabaseContext})">
+            <summary> 建構式 </summary>
+        </member>
+        <member name="M:LC.Models.Contexts.DatabaseContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary> OnModelCreating </summary>
+        </member>
+        <member name="T:LC.Models.Contexts.LoggerContext">
+            <summary> Log資料庫 </summary>
+        </member>
+        <member name="M:LC.Models.Contexts.LoggerContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{LC.Models.Contexts.LoggerContext})">
+            <summary> 建構式 </summary>
+        </member>
+        <member name="M:LC.Models.Contexts.LoggerContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary> OnModelCreating </summary>
+        </member>
+        <member name="T:LC.Models.Contexts.TaskContext">
+            <summary> 排程資料庫 </summary>
+        </member>
+        <member name="M:LC.Models.Contexts.TaskContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{LC.Models.Contexts.TaskContext})">
+            <summary> 建構式 </summary>
+        </member>
+        <member name="M:LC.Models.Contexts.TaskContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary> OnModelCreating </summary>
+        </member>
         <member name="T:LC.Models.Entities.County">
             <summary>
             縣市
@@ -652,20 +730,23 @@
             座標點位
             </summary>
         </member>
+        <member name="T:LC.Models.Entities.UserProfile">
+            <summary> 使用者資料 </summary>
+        </member>
         <member name="P:LC.Models.Entities.UserProfile.Name">
             <summary>
             名稱
-            </summary>        
+            </summary>
         </member>
         <member name="P:LC.Models.Entities.UserProfile.Account">
             <summary>
             帳號
-            </summary>        
+            </summary>
         </member>
         <member name="P:LC.Models.Entities.UserProfile.Password">
             <summary>
             密碼
-            </summary>        
+            </summary>
         </member>
         <member name="T:LC.Models.Entities.Village">
             <summary>
