@@ -1,6 +1,6 @@
 ﻿using LC.Infrastructure._Base;
 
-namespace LC.Infrastructure.Route
+namespace LC.Infrastructure.EndPoint
 {
     /// <summary>
     /// 功能基礎設施
@@ -8,14 +8,15 @@ namespace LC.Infrastructure.Route
     public class FeatureInfrastructure : AbstractFeatureInfrastructure
     {
         /// <inheritdoc />
-        public override InfrastructureEnum Name => InfrastructureEnum.Route;
+        public override InfrastructureEnum Name => InfrastructureEnum.EndPoint;
 
         /// <inheritdoc />
         public override void Configure(WebApplication app)
         {
-            app.UseRouting();
-
-            app.UseHttpsRedirection();
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}"
+            );
         }
     }
 }

@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
-
-namespace MyApp.Namespace
+namespace Template_CSharpWeb.Controllers
 {
     public class HomeController : Controller
     {

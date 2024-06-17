@@ -4,6 +4,290 @@
         <name>Template_CSharpWeb</name>
     </assembly>
     <members>
+        <member name="M:Template_CSharpWeb.Controllers.AuthenticateController.#ctor(Microsoft.Extensions.Logging.ILogger{Template_CSharpWeb.Controllers.AuthenticateController},Serilog.IDiagnosticContext,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Options.IOptions{LC.Infrastructure.AppSettings.AppSettingsOptions},Template_CSharpWeb.Services.IAuthenticateService)">
+            <summary>
+            constructor
+            </summary>
+            <param name="logger"></param>
+            <param name="diagnosticContext"></param>
+            <param name="webHostEnvironment"></param>
+            <param name="options"></param>
+            <param name="authenticateService"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Controllers.AuthenticateController.Login(Template_CSharpWeb.ViewModels.LoginModel)">
+            <summary>
+            登入
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Controllers.AuthenticateController.Register(Template_CSharpWeb.ViewModels.RegisterModel)">
+            <summary>
+            註冊
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Controllers.AuthenticateController.RegisterAdmin(Template_CSharpWeb.ViewModels.RegisterModel)">
+            <summary>
+            註冊管理者
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Controllers.TestApiController.#ctor(Microsoft.Extensions.Logging.ILogger{Template_CSharpWeb.Controllers.TestApiController},Serilog.IDiagnosticContext,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Options.IOptions{LC.Infrastructure.AppSettings.AppSettingsOptions})">
+            <summary>
+            constructor
+            </summary>
+            <param name="logger"></param>
+            <param name="diagnosticContext"></param>
+            <param name="webHostEnvironment"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Controllers.TestApiController.GetRandom">
+            <summary>
+            取得亂數
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Controllers.TestApiController.GetRandomAuth">
+            <summary>
+            取得亂數
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Template_CSharpWeb.Controllers.IBaseController">
+            <summary>
+            基底控制器-介面
+            </summary>
+        </member>
+        <member name="T:Template_CSharpWeb.Controllers.BaseController`1">
+            <summary>
+            基底控制器
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Template_CSharpWeb.Controllers.BaseController`1.#ctor(Microsoft.Extensions.Logging.ILogger{`0},Serilog.IDiagnosticContext,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Options.IOptions{LC.Infrastructure.AppSettings.AppSettingsOptions})">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="T:Template_CSharpWeb.Migrations.Init">
+            <inheritdoc />
+        </member>
+        <member name="M:Template_CSharpWeb.Migrations.Init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Template_CSharpWeb.Migrations.Init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Template_CSharpWeb.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Template_CSharpWeb.Services.IAuthenticateService">
+            <summary>
+            身分驗證服務 - 介面
+            </summary>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.IAuthenticateService.LoginAsync(Template_CSharpWeb.ViewModels.LoginModel)">
+            <summary>
+            登入
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.IAuthenticateService.FindByNameAsync(System.String)">
+            <summary>
+            以使用者名稱尋找使用者
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.IAuthenticateService.RegisterAsync(Template_CSharpWeb.ViewModels.RegisterModel)">
+            <summary>
+            註冊
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.IAuthenticateService.CreateRoleAsync">
+            <summary>
+            建立角色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.IAuthenticateService.AddToRoleAsync(System.String)">
+            <summary>
+            將使用者加入角色
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Template_CSharpWeb.Services.AuthenticateService">
+            <summary>
+            身分驗證服務
+            </summary>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.AuthenticateService.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},Microsoft.Extensions.Configuration.IConfiguration,Template_CSharpWeb.Services.IJwtService)">
+            <summary>
+            constructor
+            </summary>
+            <param name="userManager"></param>
+            <param name="roleManager"></param>
+            <param name="configuration"></param>
+            <param name="jwtService"></param>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.AuthenticateService.LoginAsync(Template_CSharpWeb.ViewModels.LoginModel)">
+            <summary>
+            登入
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.AuthenticateService.FindByNameAsync(System.String)">
+            <summary>
+            以使用者名稱尋找使用者
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.AuthenticateService.RegisterAsync(Template_CSharpWeb.ViewModels.RegisterModel)">
+            <summary>
+            註冊
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.AuthenticateService.CreateRoleAsync">
+            <summary>
+            建立角色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.AuthenticateService.AddToRoleAsync(System.String)">
+            <summary>
+            將使用者加入角色
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.IJwtService.Authenticate(Template_CSharpWeb.ViewModels.VM_Login)">
+            <summary>
+            驗證登入者
+            </summary>
+            <param name="vm_login">登入資訊</param>
+            <returns>驗證結果</returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.IJwtService.GenerateAccessToken(System.Collections.Generic.IEnumerable{System.Security.Claims.Claim})">
+            <summary>
+            建立JWT Token
+            </summary>
+            <param name="claims">聲明</param>
+            <returns>JWT Token</returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.JwtService.#ctor(LC.Models.Contexts.DatabaseContext,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            JwtService 建構子
+            </summary>
+            <param name="context">資料庫上下文</param>
+            <param name="config">設定檔</param>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.JwtService.Authenticate(Template_CSharpWeb.ViewModels.VM_Login)">
+            <summary>
+            驗證登入者
+            </summary>
+            <param name="vm_login">登入資訊</param>
+            <returns>驗證結果</returns>
+        </member>
+        <member name="M:Template_CSharpWeb.Services.JwtService.GenerateAccessToken(System.Collections.Generic.IEnumerable{System.Security.Claims.Claim})">
+            <summary>
+            建立JWT Token
+            </summary>
+            <param name="claims">聲明</param>
+            <returns>JWT Token</returns>
+        </member>
+        <member name="T:Template_CSharpWeb.ViewModels.RegisterModel">
+            <summary>
+            註冊資料
+            </summary>   
+        </member>
+        <member name="P:Template_CSharpWeb.ViewModels.RegisterModel.Username">
+            <summary>
+            使用者名稱
+            </summary>
+        </member>
+        <member name="P:Template_CSharpWeb.ViewModels.RegisterModel.Email">
+            <summary>
+            email
+            </summary>
+        </member>
+        <member name="P:Template_CSharpWeb.ViewModels.RegisterModel.Password">
+            <summary>
+            密碼
+            </summary>
+        </member>
+        <member name="T:Template_CSharpWeb.ViewModels.LoginModel">
+            <summary>
+            登入資料
+            </summary>
+        </member>
+        <member name="P:Template_CSharpWeb.ViewModels.LoginModel.Username">
+            <summary>
+            使用者名稱
+            </summary>
+        </member>
+        <member name="P:Template_CSharpWeb.ViewModels.LoginModel.Password">
+            <summary>
+            密碼
+            </summary>
+        </member>
+        <member name="T:Template_CSharpWeb.ViewModels.Response">
+            <summary>
+            Represents the response.
+            </summary>
+        </member>
+        <member name="P:Template_CSharpWeb.ViewModels.Response.Status">
+            <summary>
+            Status
+            </summary>
+        </member>
+        <member name="P:Template_CSharpWeb.ViewModels.Response.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="T:Template_CSharpWeb.ViewModels.UserRoles">
+            <summary>
+            UserRoles
+            </summary>
+        </member>
+        <member name="F:Template_CSharpWeb.ViewModels.UserRoles.Admin">
+            <summary>
+            Admin
+            </summary>
+        </member>
+        <member name="F:Template_CSharpWeb.ViewModels.UserRoles.User">
+            <summary>
+            User
+            </summary>
+        </member>
+        <member name="T:Template_CSharpWeb.ViewModels.VM_Login">
+            <summary>
+            ViewModel 登入
+            </summary>
+        </member>
+        <member name="P:Template_CSharpWeb.ViewModels.VM_Login.Account">
+            <summary>
+            帳號
+            </summary>
+        </member>
+        <member name="P:Template_CSharpWeb.ViewModels.VM_Login.Password">
+            <summary>
+            密碼
+            </summary>
+        </member>
         <member name="T:LC.Infrastructure.AppSettings.AppSettingsOptions">
             <summary> AppSettingsOptions </summary>
         </member>
@@ -302,6 +586,17 @@
         <member name="M:LC.Infrastructure.DI.FeatureInfrastructure.ConfigureServices(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:LC.Infrastructure.EndPoint.FeatureInfrastructure">
+            <summary>
+            功能基礎設施
+            </summary>
+        </member>
+        <member name="P:LC.Infrastructure.EndPoint.FeatureInfrastructure.Name">
+            <inheritdoc />
+        </member>
+        <member name="M:LC.Infrastructure.EndPoint.FeatureInfrastructure.Configure(Microsoft.AspNetCore.Builder.WebApplication)">
+            <inheritdoc />
+        </member>
         <member name="T:LC.Infrastructure.Files.FeatureInfrastructure">
             <summary>
             功能基礎設施
@@ -473,11 +768,14 @@
         <member name="F:LC.Infrastructure.InfrastructureEnum.Authentication">
             <summary> Authentication </summary>
         </member>
+        <member name="F:LC.Infrastructure.InfrastructureEnum.Route">
+            <summary> Route </summary>
+        </member>
         <member name="F:LC.Infrastructure.InfrastructureEnum.Authorization">
             <summary> Authorization </summary>
         </member>
-        <member name="F:LC.Infrastructure.InfrastructureEnum.Route">
-            <summary> Route </summary>
+        <member name="F:LC.Infrastructure.InfrastructureEnum.EndPoint">
+            <summary> EndPoint </summary>
         </member>
         <member name="F:LC.Infrastructure.InfrastructureEnum.Cors">
             <summary> Cors </summary>
@@ -807,18 +1105,6 @@
             <summary>
             座標點位
             </summary>
-        </member>
-        <member name="T:Template_CSharpWeb.Migrations.Init">
-            <inheritdoc />
-        </member>
-        <member name="M:Template_CSharpWeb.Migrations.Init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:Template_CSharpWeb.Migrations.Init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:Template_CSharpWeb.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
         </member>
         <member name="T:MyProj.Program">
             <summary>Program</summary>

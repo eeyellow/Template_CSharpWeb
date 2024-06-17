@@ -23,31 +23,33 @@ namespace LC.Infrastructure
         Identity = 7,
         /// <summary> Authentication </summary>
         Authentication = 8,
-        /// <summary> Authorization </summary>
-        Authorization = 9,
         /// <summary> Route </summary>
-        Route = 10,
+        Route = 9,
+        /// <summary> Authorization </summary>
+        Authorization = 10,
+        /// <summary> EndPoint </summary>
+        EndPoint = 11,
         /// <summary> Cors </summary>
-        Cors = 11,
+        Cors = 12,
         /// <summary> Graphql </summary>
-        Graphql = 12,
+        Graphql = 13,
         /// <summary> Hangfire </summary>
-        Hangfire = 13,
+        Hangfire = 14,
         /// <summary> Swagger </summary>
-        Swagger = 14,
+        Swagger = 15,
         /// <summary> Mvc </summary>
-        Mvc = 15,
+        Mvc = 16,
         /// <summary> HttpClient </summary>
-        HttpClient = 16,
+        HttpClient = 17,
         /// <summary> Session </summary>
-        Session = 17,
+        Session = 18,
         /// <summary> Cache </summary>
-        Cache = 18,
+        Cache = 19,
         /// <summary> Logger </summary>
-        Logger = 19,
+        Logger = 20,
         /// <summary> Files </summary>
-        Files = 20,
+        Files = 21,
         /// <summary> Security </summary>
-        Security = 21,
+        Security = 22,
     }
 }
